@@ -16,6 +16,12 @@
 # Note: Design the game in terms of object oriented classes with state and behavior.
 
 import random
+import time
+
+class pause:
+    def __init__(self):
+        time.sleep(1)
+        print("")  
 
 A = 11
 K = 10
@@ -35,32 +41,43 @@ class MyHand:
 
     def startingHand(self):
         print(self.name, "at", self.cardOne,"and ",self.cardTwo)
+        pause()
         print(self.name, ' sitting at', self.cardOne+self.cardTwo)
+        pause()
     
     def score(self):
         total = self.cardOne+self.cardTwo 
         
         if total > 21:
+            pause()
             print ("BUST")
+            pause()
         elif total == 21:
             print ("BlackJack!")
+            pause()
         else:
             userChoice = input("Would you like to hit or stay? ")
             
             if userChoice == "stay":
-                print("")
+                pause()
                 print ("You have chosen to STAY")
+                pause()
             else:
-                print("")
+                pause()
                 print ("You've chosen to hit")
+                pause()
                 print("Here is your next card.")
+                pause()
                 nextCard = Card(3)
                 hand = MyHand(total, nextCard.hit, "You're")
+                pause()
                 hand.startingHand()
                 hand.score()
 
+             
 
-print("")
+
+pause()
 print('Starting Game')
 firstC = Card(1)
 secondC = Card(2)
@@ -68,13 +85,14 @@ dealerC1 = Card(7)
 dealerC2 = Card(8)
 
 dealerHand = MyHand(dealerC1.hit,dealerC2.hit, "Dealer's")
+pause()
 dealerHand.startingHand()
 
 hand = MyHand(firstC.hit,secondC.hit, "You're")
 
-print("")
+pause()
 hand.startingHand()
-print("")
+pause()
 hand.score()
 
 
